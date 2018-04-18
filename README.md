@@ -65,7 +65,7 @@ morphology(binary)
 cv2.waitKey(0)  
 ```
 python程序步骤：
-（一）读入图像数据  
+（一）读入图像数据    
 ![image](https://img-blog.csdn.net/20180417231109349?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dzaDU5NjgyMzkxOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)  
 使用OpenCV库读入tiff图像
 ```python
@@ -73,7 +73,7 @@ img =cv2.imread("TEST.tif")
 ```
  
 
-（二）消除椒盐噪声
+（二）消除椒盐噪声   
 ![image](https://img-blog.csdn.net/20180417231048796?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dzaDU5NjgyMzkxOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 使用5*5的中值滤波器滤除椒盐噪声
 ```python
@@ -87,7 +87,7 @@ img =cv2.imread("TEST.tif")
 ```
  
 
-（四）对图像进行直方图均衡化处理
+（四）对图像进行直方图均衡化处理   
 ![image](https://img-blog.csdn.net/20180417231141779?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dzaDU5NjgyMzkxOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 ```python
     hist = cv2.equalizeHist(Grayimg)
@@ -96,7 +96,7 @@ img =cv2.imread("TEST.tif")
 
  
 
-（五）对直方图均衡化后进行二值化处理
+（五）对直方图均衡化后进行二值化处理   
 ![image](https://img-blog.csdn.net/20180417231155103?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dzaDU5NjgyMzkxOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 选取阈值为140，大于140灰度值的像素置位255，低于140灰度值为0
 ```python
@@ -126,7 +126,7 @@ kernel1= cv2.getStructuringElement(cv2.MORPH_RECT, (20,14))    iFushi = cv2.morp
 ```python
     jian = np.abs(iPengzhang - img)
 ```
-
+  
 ![image](https://img-blog.csdn.net/20180417231227305?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dzaDU5NjgyMzkxOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
  
 
@@ -138,7 +138,7 @@ kernel1= cv2.getStructuringElement(cv2.MORPH_RECT, (20,14))    iFushi = cv2.morp
     iWenzi =cv2.morphologyEx(jian, cv2.MORPH_DILATE, kernel3)
     
 ```
-
+  
 ![image](https://img-blog.csdn.net/20180417231236441?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dzaDU5NjgyMzkxOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
  
 
