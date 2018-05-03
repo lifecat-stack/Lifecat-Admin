@@ -2,8 +2,19 @@
 
 ## Python图像处理学习笔记  
  
-### 1、kmeans聚类实现图片像素的分类  
-  
+### 1、kmeans聚类实现图片像素的分类 
+
+* 根据输入的k值进行Kmeans聚类算法实现对图像的像素分类
+* kmeans算法使用基本数据结构实现,未调用kmeans算法库
+* 步骤注释详细,适合kmeans算法的学习
+
+    py文件:kmeans-->cv2kmeans.py
+    
+k=4时  
+![image](http://chuantu.biz/t6/301/1525338544x-1404795559.png)
+![image](http://chuantu.biz/t6/301/1525338483x-1404792981.png)
+
+  
 ### 2、view1图像处理综合--提取椒盐噪声下的车牌号
 * 中值滤波消噪
 * 直方图均衡化
