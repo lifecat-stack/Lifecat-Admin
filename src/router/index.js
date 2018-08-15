@@ -74,14 +74,32 @@ export const constantRouterMap = [
   {
     path: '/datachart',
     component: Layout,
-    redirect: '/datachart',
+    redirect: 'noredirect',
     name: 'Datachart',
-    children: [{
-      path: '/datachart',
-      component: () => import('@/views/datachart/index'),
-      name: 'Datachart',
-      meta: { title: '数据分析', icon: 'chart' }
-    }]
+    meta: {
+      title: '数据分析',
+      icon: 'chart'
+    },
+    children: [
+      {
+        path: 'keyboard',
+        component: () => import('@/views/datachart/keyboard'),
+        name: 'keyboardChart',
+        meta: { title: '访问量分析', noCache: true }
+      },
+      {
+        path: 'line',
+        component: () => import('@/views/datachart/line'),
+        name: 'lineChart',
+        meta: { title: '活跃度分析', noCache: true }
+      },
+      {
+        path: 'mixchart',
+        component: () => import('@/views/datachart/mixChart'),
+        name: 'mixChart',
+        meta: { title: '消费指数分析', noCache: true }
+      }
+    ]
   },
 
   // TODO 待定
