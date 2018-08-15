@@ -4,7 +4,7 @@
     <el-form class="login-form" autoComplete="on" :model="loginForm" :rules="loginRules" ref="loginForm" label-position="left">
 
       <div class="title-container">
-        <h3 class="title">{{$t('login.title')}}</h3>
+        <h3 class="title">{{login.title}}</h3>
         <lang-select class="set-language"></lang-select>
       </div>
 
@@ -12,7 +12,7 @@
         <span class="svg-container svg-container_login">
           <svg-icon icon-class="user" />
         </span>
-        <el-input name="username" type="text" v-model="loginForm.username" autoComplete="on" :placeholder="$t('login.username')"
+        <el-input name="username" type="text" v-model="loginForm.username" autoComplete="on" :placeholder="login.username"
         />
       </el-form-item>
 
@@ -21,28 +21,28 @@
           <svg-icon icon-class="password" />
         </span>
         <el-input name="password" :type="passwordType" @keyup.enter.native="handleLogin" v-model="loginForm.password" autoComplete="on"
-          :placeholder="$t('login.password')" />
+          :placeholder="login.password" />
         <span class="show-pwd" @click="showPwd">
           <svg-icon icon-class="eye" />
         </span>
       </el-form-item>
 
-      <el-button type="primary" style="width:100%;margin-bottom:30px;" :loading="loading" @click.native.prevent="handleLogin">{{$t('login.logIn')}}</el-button>
+      <el-button type="primary" style="width:100%;margin-bottom:30px;" :loading="loading" @click.native.prevent="handleLogin">{{login.logIn}}</el-button>
 
       <div class="tips">
-        <span>{{$t('login.username')}} : admin</span>
-        <span>{{$t('login.password')}} : {{$t('login.any')}}</span>
+        <span>{{login.username}} : admin</span>
+        <span>{{login.password}} : {{login.any}}</span>
       </div>
       <div class="tips">
-        <span style="margin-right:18px;">{{$t('login.username')}} : editor</span>
-        <span>{{$t('login.password')}} : {{$t('login.any')}}</span>
+        <span style="margin-right:18px;">{{login.username}} : editor</span>
+        <span>{{login.password}} : {{login.any}}</span>
       </div>
 
-      <el-button class="thirdparty-button" type="primary" @click="showDialog=true">{{$t('login.thirdparty')}}</el-button>
+      <el-button class="thirdparty-button" type="primary" @click="showDialog=true">{{login.thirdparty}}</el-button>
     </el-form>
 
-    <el-dialog :title="$t('login.thirdparty')" :visible.sync="showDialog" append-to-body>
-      {{$t('login.thirdpartyTips')}}
+    <el-dialog :title="login.thirdparty" :visible.sync="showDialog" append-to-body>
+      {{login.thirdpartyTips}}
       <br/>
       <br/>
       <br/>
@@ -76,6 +76,15 @@ export default {
       }
     }
     return {
+      login: {
+        title: '系统登录',
+        logIn: '登录',
+        username: '账号',
+        password: '密码',
+        any: '随便填',
+        thirdparty: '第三方登录',
+        thirdpartyTips: '本地不能模拟，请结合自己业务进行模拟！！！'
+      },
       loginForm: {
         username: 'admin',
         password: '1111111'
@@ -144,7 +153,7 @@ export default {
 <style rel="stylesheet/scss" lang="scss">
   /* 修复input 背景不协调 和光标变色 */
   /* Detail see https://github.com/PanJiaChen/vue-element-admin/pull/927 */
- 
+
   $bg:#283443;
   $light_gray:#eee;
   $cursor: #fff;
