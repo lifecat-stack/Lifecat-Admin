@@ -1,71 +1,133 @@
 <template>
   <div class="app-container">
-    <el-input placeholder="Filter keyword" v-model="filterText" style="margin-bottom:30px;"></el-input>
+    <el-table :data="list" v-loading="listLoading" element-loading-text="Loading" border fit highlight-current-row>
 
-    <el-tree class="filter-tree" :data="data2" :props="defaultProps" default-expand-all :filter-node-method="filterNode" ref="tree2"></el-tree>
+      <!--userId-->
+      <el-table-column label='ID' width="95" align="center">
+        <template slot-scope="scope">
+          {{scope.row.userId}}
+        </template>
+      </el-table-column>
 
+      <!--userAccountName-->
+      <el-table-column label="用户名" width="110" align="center">
+        <template slot-scope="scope">
+          <span>{{scope.row.userAccountName}}</span>
+        </template>
+      </el-table-column>
+
+      <!--userName-->
+      <el-table-column label="昵称" width="110" align="center">
+        <template slot-scope="scope">
+          <span>{{scope.row.userName}}</span>
+        </template>
+      </el-table-column>
+
+      <!--userSex-->
+      <el-table-column label="性别" width="110" align="center">
+        <template slot-scope="scope">
+          <span>{{scope.row.userSex}}</span>
+        </template>
+      </el-table-column>
+
+      <!--userEmail-->
+      <el-table-column label="邮箱" width="150" align="center">
+        <template slot-scope="scope">
+          <span>{{scope.row.userEmail}}</span>
+        </template>
+      </el-table-column>
+
+      <!--userLocation-->
+      <el-table-column label="所在位置" width="150" align="center">
+        <template slot-scope="scope">
+          <span>{{scope.row.userLocation}}</span>
+        </template>
+      </el-table-column>
+
+      <!--userPhoneNumber-->
+      <el-table-column label="电话号码" width="150" align="center">
+        <template slot-scope="scope">
+          <span>{{scope.row.userPhoneNumber}}</span>
+        </template>
+      </el-table-column>
+
+      <!--userGmtCreate-->
+      <el-table-column label="注册时间" width="150" align="center">
+        <template slot-scope="scope">
+          <span>{{scope.row.userGmtCreate}}</span>
+        </template>
+      </el-table-column>
+
+      <!--userLastLogin-->
+      <el-table-column label="最后登录" width="150" align="center">
+        <template slot-scope="scope">
+          <span>{{scope.row.userLastLogin}}</span>
+        </template>
+      </el-table-column>
+
+      <!--userLoginCount-->
+      <el-table-column label="访问次数" width="110" align="center">
+        <template slot-scope="scope">
+          <span>{{scope.row.userLoginCount}}</span>
+        </template>
+      </el-table-column>
+
+      <!--isUserDeleted-->
+      <el-table-column label="启用状态" width="110" align="center" class-name="status-col">
+        <template slot-scope="scope">
+          <el-tag :type="scope.row.isUserDeleted | statusFilter">{{scope.row.isUserDeleted}}</el-tag>
+        </template>
+      </el-table-column>
+
+      <!--userRole-->
+      <el-table-column label="权限" width="100" align="center" class-name="status-col">
+        <template slot-scope="scope">
+          <el-tag :type="scope.row.userRole | statusFilter">{{scope.row.userRole}}</el-tag>
+        </template>
+      </el-table-column>
+
+      <el-table-column label="Actions" min-width="200" align="center" prop="created_at">
+        <template slot-scope="scope">
+          <i class="el-icon-time"></i>
+        </template>
+      </el-table-column>
+
+    </el-table>
   </div>
 </template>
 
 <script>
-export default {
-  watch: {
-    filterText(val) {
-      this.$refs.tree2.filter(val)
-    }
-  },
+  import { getUserList } from '@/api/databoard'
 
-  methods: {
-    filterNode(value, data) {
-      if (!value) return true
-      return data.label.indexOf(value) !== -1
-    }
-  },
-
-  data() {
-    return {
-      filterText: '',
-      data2: [{
-        id: 1,
-        label: 'Level one 1',
-        children: [{
-          id: 4,
-          label: 'Level two 1-1',
-          children: [{
-            id: 9,
-            label: 'Level three 1-1-1'
-          }, {
-            id: 10,
-            label: 'Level three 1-1-2'
-          }]
-        }]
-      }, {
-        id: 2,
-        label: 'Level one 2',
-        children: [{
-          id: 5,
-          label: 'Level two 2-1'
-        }, {
-          id: 6,
-          label: 'Level two 2-2'
-        }]
-      }, {
-        id: 3,
-        label: 'Level one 3',
-        children: [{
-          id: 7,
-          label: 'Level two 3-1'
-        }, {
-          id: 8,
-          label: 'Level two 3-2'
-        }]
-      }],
-      defaultProps: {
-        children: 'children',
-        label: 'label'
+  export default {
+    data() {
+      return {
+        list: null,
+        listLoading: true
+      }
+    },
+    filters: {
+      statusFilter(status) {
+        const statusMap = {
+          published: 'success',
+          draft: 'gray',
+          deleted: 'danger'
+        }
+        return statusMap[status]
+      }
+    },
+    created() {
+      this.fetchData()
+    },
+    methods: {
+      fetchData() {
+        this.listLoading = true
+        getUserList().then(response => {
+          console.log('res' + response.data.userList)
+          this.list = response.data.userList
+          this.listLoading = false
+        })
       }
     }
   }
-}
 </script>
-
