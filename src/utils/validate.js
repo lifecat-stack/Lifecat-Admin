@@ -1,6 +1,4 @@
-/**
- * Created by jiachenpan on 16/11/18.
- */
+// 参数校验方法
 
 export function isvalidUsername(str) {
   const valid_map = ['admin', 'editor']
