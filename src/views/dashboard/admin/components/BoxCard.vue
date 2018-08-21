@@ -7,7 +7,7 @@
     <div style="position:relative;">
 
       <pan-thumb class="panThumb" :image="avatar"></pan-thumb>
-      <mallki className='mallki-text' text='vue-admin-lifecat'></mallki>
+      <mallki className='mallki-text' text='lifecat-admin'></mallki>
 
       <div style="padding-top:35px;" class='progress-item'>
         <span>Vue</span>

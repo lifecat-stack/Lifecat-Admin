@@ -1,29 +1,33 @@
 import request from '@/utils/request'
 
+// 获取user列表
 export function getUserList() {
   return request({
-    url: '/user/all',
+    url: '/users',
     method: 'get'
   })
 }
 
+// 获取message列表
 export function getMessageList() {
   return request({
-    url: '/message/all',
+    url: '/messages',
     method: 'get'
   })
 }
 
+// 获取image列表
 export function getImageList() {
   return request({
-    url: '/image/all',
+    url: '/images',
     method: 'get'
   })
 }
 
+// 获取dynamic列表
 export function getDynamicList() {
   return request({
-    url: '/record/all',
-    method: 'post'
+    url: '/records',
+    method: 'get'
   })
 }
