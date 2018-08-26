@@ -1,85 +1,70 @@
 # lifecat-admin
 
+![java](https://img.shields.io/badge/language-java-red.svg)
 ![许可](https://img.shields.io/dub/l/vibe-d.svg) 
 :cat: :smiley_cat: :kissing_cat:
 
-> A minimal vue admin template with Element UI & axios & iconfont & permission control & lint
+> 这是lifeCat项目的第三篇之一，一个简易的后台管理系统的前端vue项目，它使用了脚手架模板，可快速搭建模板项目。使用的UI框架为Element UI，使用axios调用API并使用mock进行数据的模拟，适合vue前端的学习。
 
-**Live demo:** http://www.lifecat.club/admin
+#### [线上DEMO地址(仅部署前端)](http://www.lifecat.club/admin)
 
-[中文文档](https://github.com/kevinten10/Vue-Admin-lifecat/blob/master/README-zh.md)
+### 后续项目线上地址 (建议由浅入深的按顺序学习)
 
-## cli-use
+[lifecatweb的jsp+servlet项目](http://www.lifecat.club:8080/lifecatweb)
 
- [github adress](https://github.com/PanJiaChen/vue-element-admin)
+[lifecatweb的ssm后台管理系统项目](http://www.lifecat.club:8080/ssm)
 
-## Related projects
- 
- [web-lifecat](https://github.com/kevinten10/Web-lifecat)
- 
-## course
- 
- [zhi hu](https://zhuanlan.zhihu.com/p/42595941)
+[Vuejs+SpringBoot前后端分离仿ins图像网站(仅部署前端)](http://www.lifecat.club/lifecat)
 
-## Build Setup
+## 脚手架模板使用
 
+ [模板github地址](https://github.com/PanJiaChen/vue-element-admin)
+
+## 项目部署
+### 本地部署
 ``` bash
-
 # Clone project
 git clone https://github.com/kevinten10/Vue-Admin-lifecat.git
 
 # Install dependencies
 npm install
 
-# serve with hot reload at localhost:9528
+# 若报错，则根据异常信息安装相应的依赖包
+npm install --save xxxxxx
+
+# (可选)建议不要用cnpm  安装有各种诡异的bug 可以通过如下操作解决npm速度慢的问题
+npm install --registry=https://registry.npm.taobao.org
+
+# (运行)serve with hot reload at localhost:9527
 npm run dev
 
-# build for production with minification
+---
+
+# (打包)build for production with minification
 npm run build
 
-# build for production and view the bundle analyzer report
+# (打包，可选)build for production and view the bundle analyzer report
 npm run build --report
 ```
 
-## Demo
+## DEMO
+
 ![demo](show1.png)
 
 ![demo](show2.png)
 
-## Extra
-If you want router permission && generate menu by user roles , you can use this branch [permission-control](https://github.com/kevinten10/Vue-Admin-lifecat/tree/permission-control)
-
-## Related Project
- [vue-element-admin](https://github.com/kevinten10/vue-element-admin)
-
- [electron-vue-admin](https://github.com/kevinten10/electron-vue-admin)
-
-### Element-Ui using cdn tutorial
-First find `index.html`([root directory](https://github.com/kevinten10/Vue-Admin-lifecat/blob/element-ui-cdn/index.html))
-
-Import css and js of `Element`, and then import vue. Because `Element` is vue-dependent, vue must be import before it.
-
-Then find [webpack.base.conf.js](https://github.com/kevinten10/Vue-Admin-lifecat/blob/element-ui-cdn/build/webpack.base.conf.js)
-Add `externals` to make webpack not package vue and element.
-
-```
-externals: {
-  vue: 'Vue',
-  'element-ui':'ELEMENT'
-}
-```
-
-Finally there is a small detail to pay attention to that if you import vue in global, you don't need to manually `Vue.use(Vuex)`, it will be automatically mounted, see
- [issue](https://github.com/vuejs/vuex/issues/731)
-
-And you can use `npm run build --report` to see the effect
-
-**[Detailed code](https://github.com/kevinten10/Vue-Admin-lifecat/commit/746aff560932704ae821f82f10b8b2a9681d5177)**
-
-**[Branch](https://github.com/kevinten10/Vue-Admin-lifecat/tree/element-ui-cdn)**
-
-
-## License
-[MIT](https://github.com/kevinten10/Vue-Admin-lifecat/blob/master/LICENSE) license.
-
-Copyright (c) 2017-present kevinten10
+![demo](show3.png)
+  
+### lifecat相关项目
+  [v1 jsp+servlet+mysql实现Javaweb](https://github.com/kevinten10/lifecatweb)    
+  [v2 ssm框架实现Javaweb后台管理系统](https://github.com/kevinten10/SSM-lifecat)  
+  [v3 前后端分离之SpringBoot实现Java后端开发](https://github.com/kevinten10/springboot-lifecat)  
+  [v3 前后端分离之vue实现后台管理系统](https://github.com/kevinten10/Vue-Admin-lifecat)  
+  [v3 前后端分离之vue实现仿ins效果web开发](https://github.com/kevinten10/Web-lifecat)  
+  
+  [ex wechat 微信移动端小程序开发](https://github.com/kevinten10/WeChat-lifecat)  
+  [ex hadoop 分布式平台进行数据处理](https://github.com/kevinten10/Hadoop-lifecat)  
+  [ex android 相应Android相册应用](https://github.com/kevinten10/Android-lifecat)  
+  [ex python 机器学习进行图像智能处理](https://github.com/kevinten10/Python-lifecat)  
+  
+  
