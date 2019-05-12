@@ -2,7 +2,7 @@
   <section class="todoapp">
     <!-- header -->
     <header class="header">
-      <input class="new-todo" autocomplete="off" placeholder="待办事项" @keyup.enter="addTodo">
+      <input class="new-todo" autocomplete="off" placeholder="待检修设备列表" @keyup.enter="addTodo">
     </header>
     <!-- main section -->
     <section class="main" v-show="todos.length">
@@ -43,14 +43,14 @@
     completed: todos => todos.filter(todo => todo.done)
   }
   const defalutList = [
-    { text: 'star this repository', done: false },
-    { text: 'fork this repository', done: false },
-    { text: 'follow author', done: false },
-    { text: 'vue-element-admin', done: true },
-    { text: 'vue', done: true },
-    { text: 'element-ui', done: true },
-    { text: 'axios', done: true },
-    { text: 'webpack', done: true }
+    { text: '江南大学北门门禁', done: false },
+    { text: '南区浩苑2号门禁', done: false },
+    { text: '南区润苑1号门禁', done: false },
+    { text: '南区浩苑2号门禁', done: true },
+    { text: '江南大学东门门禁', done: true },
+    { text: '北区桂园2号门禁', done: true },
+    { text: '南区润苑1号门禁', done: true },
+    { text: '江南大学西北门门禁', done: true }
   ]
   export default {
     components: { Todo },

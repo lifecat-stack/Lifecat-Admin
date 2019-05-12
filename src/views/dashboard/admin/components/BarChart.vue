@@ -80,21 +80,21 @@
             }
           }],
           series: [{
-            name: '人物类',
+            name: '北区桃园',
             type: 'bar',
             stack: 'vistors',
             barWidth: '60%',
             data: [79, 52, 200, 334, 390, 330, 220],
             animationDuration
           }, {
-            name: '风景类',
+            name: '北区李园',
             type: 'bar',
             stack: 'vistors',
             barWidth: '60%',
             data: [80, 52, 200, 334, 390, 330, 220],
             animationDuration
           }, {
-            name: '物体类',
+            name: '北区榴园',
             type: 'bar',
             stack: 'vistors',
             barWidth: '60%',

@@ -1,21 +1,21 @@
 <template>
   <el-table :data="list" style="width: 100%;padding-top: 15px;">
-    <el-table-column label="订单" min-width="200">
+    <el-table-column label="用户ID" min-width="200">
       <template slot-scope="scope">
         {{scope.row.order | orderNoFilter}}
       </template>
     </el-table-column>
-    <el-table-column label="客户" min-width="200">
+    <el-table-column label="用户名" min-width="100">
       <template slot-scope="scope">
         {{scope.row.username | orderNoFilter}}
       </template>
     </el-table-column>
-    <el-table-column label="价格" width="195" align="center">
+    <el-table-column label="访问次数" width="100" align="center">
       <template slot-scope="scope">
-        ¥{{scope.row.price | toThousandslsFilter}}
+        {{scope.row.price | toThousandslsFilter}}
       </template>
     </el-table-column>
-    <el-table-column label="状态" width="100" align="center">
+    <el-table-column label="当前状态" width="100" align="center">
       <template slot-scope="scope">
         <el-tag :type="scope.row.status | statusFilter"> {{scope.row.status}}</el-tag>
       </template>
@@ -36,7 +36,7 @@
       statusFilter(status) {
         const statusMap = {
           success: 'success',
-          pending: 'danger'
+          pending: 'pending'
         }
         return statusMap[status]
       },

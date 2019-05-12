@@ -48,25 +48,25 @@ export const constantRouterMap = [
         path: 'user',
         name: 'User',
         component: () => import('@/views/databoard/user/index'),
-        meta: { title: '用户资料', icon: 'user' }
+        meta: { title: '社区资料', icon: 'user' }
       },
       {
         path: 'message',
         name: 'Message',
         component: () => import('@/views/databoard/message/index'),
-        meta: { title: '通知信息', icon: 'guide' }
+        meta: { title: '设备资料', icon: 'guide' }
       },
       {
         path: 'image',
         name: 'Image',
         component: () => import('@/views/databoard/image/index'),
-        meta: { title: '图片相册', icon: 'tab' }
+        meta: { title: '用户资料', icon: 'tab' }
       },
       {
         path: 'dynamic',
         name: 'Dynamic',
         component: () => import('@/views/databoard/dynamic/index'),
-        meta: { title: '用户动态', icon: 'example' }
+        meta: { title: '访问记录', icon: 'example' }
       }
     ]
   },
@@ -77,7 +77,7 @@ export const constantRouterMap = [
     redirect: 'noredirect',
     name: 'Datachart',
     meta: {
-      title: '数据分析',
+      title: '设备访问热度分析',
       icon: 'chart'
     },
     children: [
@@ -85,19 +85,19 @@ export const constantRouterMap = [
         path: 'keyboard',
         component: () => import('@/views/datachart/keyboard'),
         name: 'keyboardChart',
-        meta: { title: '访问量分析', noCache: true }
+        meta: { title: '实时热度分析', noCache: true }
       },
       {
         path: 'line',
         component: () => import('@/views/datachart/line'),
         name: 'lineChart',
-        meta: { title: '活跃度分析', noCache: true }
+        meta: { title: '二十四小时热度分析', noCache: true }
       },
       {
         path: 'mixchart',
         component: () => import('@/views/datachart/mixChart'),
         name: 'mixChart',
-        meta: { title: '消费指数分析', noCache: true }
+        meta: { title: '总访问热度分析', noCache: true }
       }
     ]
   },
@@ -107,17 +107,17 @@ export const constantRouterMap = [
     path: '/nested',
     component: Layout,
     redirect: '/nested/menu1',
-    name: 'nested',
+    name: 'personas',
     meta: {
-      title: 'nested',
-      icon: 'nested'
+      title: '用户画像分析',
+      icon: 'user'
     },
     children: [
       {
         path: 'menu1',
         component: () => import('@/views/nested/menu1/index'), // Parent router-view
         name: 'menu1',
-        meta: { title: 'menu1' },
+        meta: { title: '工作模型' },
         children: [
           {
             path: 'menu1-1',
@@ -156,7 +156,7 @@ export const constantRouterMap = [
       {
         path: 'menu2',
         component: () => import('@/views/nested/menu2/index'),
-        meta: { title: 'menu2' }
+        meta: { title: '生活模型' }
       }
     ]
   },

@@ -7,7 +7,7 @@
     <div style="position:relative;">
 
       <pan-thumb class="panThumb" :image="avatar"></pan-thumb>
-      <mallki className='mallki-text' text='lifecat-admin'></mallki>
+      <mallki className='mallki-text' text='Aditum门禁系统'></mallki>
 
       <div style="padding-top:35px;" class='progress-item'>
         <span>Vue</span>

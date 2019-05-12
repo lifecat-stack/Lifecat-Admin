@@ -54,7 +54,7 @@ export default {
       this.chart.setOption({
         backgroundColor: '#344b58',
         title: {
-          text: 'statistics',
+          text: '设备总访问热度分析',
           x: '20',
           top: '20',
           textStyle: {
@@ -88,7 +88,7 @@ export default {
           textStyle: {
             color: '#90979c'
           },
-          data: ['female', 'male', 'average']
+          data: ['北区桃园', '北区李园', '平均访问量']
         },
         calculable: true,
         xAxis: [{
@@ -160,7 +160,7 @@ export default {
           end: 35
         }],
         series: [{
-          name: 'female',
+          name: '北区桃园',
           type: 'bar',
           stack: 'total',
           barMaxWidth: 35,
@@ -197,7 +197,7 @@ export default {
         },
 
         {
-          name: 'male',
+          name: '北区李园',
           type: 'bar',
           stack: 'total',
           itemStyle: {
@@ -228,7 +228,7 @@ export default {
             220
           ]
         }, {
-          name: 'average',
+          name: '平均访问量',
           type: 'line',
           stack: 'total',
           symbolSize: 10,

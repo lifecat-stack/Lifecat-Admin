@@ -9,8 +9,8 @@
           <svg-icon icon-class="peoples" class-name="card-panel-icon"/>
         </div>
         <div class="card-panel-description">
-          <div class="card-panel-text">用户资料</div>
-          <count-to class="card-panel-num" :startVal="0" :endVal="102400" :duration="2600"></count-to>
+          <div class="card-panel-text">社区资料</div>
+          <count-to class="card-panel-num" :startVal="0" :endVal="2" :duration="2600"></count-to>
         </div>
       </div>
     </el-col>
@@ -22,8 +22,8 @@
           <svg-icon icon-class="message" class-name="card-panel-icon"/>
         </div>
         <div class="card-panel-description">
-          <div class="card-panel-text">通知信息</div>
-          <count-to class="card-panel-num" :startVal="0" :endVal="81212" :duration="3000"></count-to>
+          <div class="card-panel-text">设备资料</div>
+          <count-to class="card-panel-num" :startVal="0" :endVal="19" :duration="3000"></count-to>
         </div>
       </div>
     </el-col>
@@ -35,8 +35,8 @@
           <svg-icon icon-class="tab" class-name="card-panel-icon"/>
         </div>
         <div class="card-panel-description">
-          <div class="card-panel-text">图片相册</div>
-          <count-to class="card-panel-num" :startVal="0" :endVal="9280" :duration="3200"></count-to>
+          <div class="card-panel-text">用户资料</div>
+          <count-to class="card-panel-num" :startVal="0" :endVal="235" :duration="3200"></count-to>
         </div>
       </div>
     </el-col>
@@ -48,8 +48,8 @@
           <svg-icon icon-class="star" class-name="card-panel-icon"/>
         </div>
         <div class="card-panel-description">
-          <div class="card-panel-text">用户动态</div>
-          <count-to class="card-panel-num" :startVal="0" :endVal="13600" :duration="3600"></count-to>
+          <div class="card-panel-text">访问动态</div>
+          <count-to class="card-panel-num" :startVal="0" :endVal="7456" :duration="3600"></count-to>
         </div>
       </div>
     </el-col>

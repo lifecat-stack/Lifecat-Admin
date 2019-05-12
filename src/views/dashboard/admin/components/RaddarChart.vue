@@ -76,18 +76,18 @@
             },
             // 雷达属性
             indicator: [
-              { name: '年龄', max: 100 },
-              { name: '资产', max: 100 },
-              { name: '购买力', max: 100 },
-              { name: '活跃度', max: 100 },
-              { name: '热度', max: 100 }
+              { name: '朝九晚五', max: 100 },
+              { name: '朝九晚九', max: 100 },
+              { name: '居家人士', max: 100 },
+              { name: '出差频繁', max: 100 },
+              { name: '门禁热度', max: 100 }
             ]
           },
           // 雷达实体
           legend: {
             left: 'center',
             bottom: '10',
-            data: ['青少年', '父母亲', '老年辈']
+            data: ['北区桃园', '北区李园', '北区榴园']
           },
           series: [{
             type: 'radar',
@@ -105,15 +105,15 @@
             data: [
               {
                 value: [14, 20, 50, 75, 80],
-                name: '青少年'
+                name: '北区桃园'
               },
               {
                 value: [35, 70, 75, 45, 60],
-                name: '父母亲'
+                name: '北区李园'
               },
               {
                 value: [57, 55, 75, 25, 40],
-                name: '老年辈'
+                name: '北区榴园'
               }
             ],
             animationDuration: animationDuration

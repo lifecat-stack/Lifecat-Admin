@@ -38,7 +38,7 @@
     created() {
       this.listLoading = true
       getAccessDeviceHeatChart().then(response => {
-        console.log('res' + response.data.data)
+        console.table('res' + response.data.data)
         this.list = response.data.data
         this.listLoading = false
       })
@@ -47,7 +47,7 @@
         this.specificData[i] = this.list[i].currentHourCount
       }
 
-      console.log('fasdddddddddddd' + this.specificData.grid)
+      console.table('fasdddddddddddd' + this.specificData)
     },
     mounted() {
       this.initChart()
@@ -67,7 +67,7 @@
           backgroundColor: '#394056',
           title: {
             top: 20,
-            text: '门禁访问量统计分析',
+            text: '二十四小时热度分析',
             textStyle: {
               fontWeight: 'normal',
               fontSize: 16,
@@ -89,7 +89,7 @@
             itemWidth: 14,
             itemHeight: 5,
             itemGap: 13,
-            data: ['北区', '南区', '东门'],
+            data: ['北区桃园', '北区李园', '北区榴园'],
             right: '4%',
             textStyle: {
               fontSize: 12,
@@ -138,7 +138,7 @@
             }
           }],
           series: [{
-            name: 'CMCC',
+            name: '北区桃园',
             type: 'line',
             smooth: true,
             symbol: 'circle',
@@ -170,10 +170,10 @@
 
               }
             },
-            data: this.specificData
-            // data: [220, 182, 191, 134, 150, 120, 110, 125, 145, 122, 165, 122]
+            // data: this.specificData
+            data: [220, 182, 191, 134, 150, 120, 110, 125, 145, 122, 165, 122]
           }, {
-            name: 'CTCC',
+            name: '北区李园',
             type: 'line',
             smooth: true,
             symbol: 'circle',
@@ -207,7 +207,7 @@
             },
             data: [120, 110, 125, 145, 122, 165, 122, 220, 182, 191, 134, 150]
           }, {
-            name: 'CUCC',
+            name: '北区榴园',
             type: 'line',
             smooth: true,
             symbol: 'circle',

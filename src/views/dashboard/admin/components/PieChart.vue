@@ -58,7 +58,7 @@
           legend: {
             left: 'center',
             bottom: '10',
-            data: ['人物写真', '食物菜肴', '风景环境', '家庭聚会', '其他']
+            data: ['北区桃园', '北区李园', '北区榴园', '南区澈苑', '北区桂园']
           },
           calculable: true,
           series: [
@@ -69,11 +69,11 @@
               radius: [15, 95],
               center: ['50%', '38%'],
               data: [
-                { value: 320, name: '人物写真' },
-                { value: 240, name: '食物菜肴' },
-                { value: 149, name: '风景环境' },
-                { value: 100, name: '家庭聚会' },
-                { value: 59, name: '其他' }
+                { value: 320, name: '北区桃园' },
+                { value: 240, name: '北区李园' },
+                { value: 149, name: '北区榴园' },
+                { value: 100, name: '南区澈苑' },
+                { value: 59, name: '北区桂园' }
               ],
               animationEasing: 'cubicInOut',
               animationDuration: 2600
