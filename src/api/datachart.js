@@ -20,3 +20,11 @@ export function getConsumptionChart() {
     method: 'get'
   })
 }
+
+// 获取门禁
+export function getAccessDeviceHeatChart() {
+  return request({
+    url: '/access/device/heat?imei=2b6844b892724363a00083cf01d448a7',
+    method: 'get'
+  })
+}
