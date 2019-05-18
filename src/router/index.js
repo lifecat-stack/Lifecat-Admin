@@ -154,11 +154,11 @@ export const constantRouterMap = [
         ]
       },
       {
-        path: 'menu2',
-        component: () => import('@/views/nested/menu2/index'),
-        meta: { title: '生活模型' }
-      }
-    ]
+        path: 'charcloud',
+        component: () => import('@/views/datachart/charcloud'),
+        name: 'charcloud',
+        meta: { title: '用户画像词云', noCache: true }
+      }]
   },
 
   { path: '*', redirect: '/404', hidden: true }
