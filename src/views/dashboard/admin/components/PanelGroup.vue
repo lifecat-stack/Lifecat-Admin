@@ -10,7 +10,7 @@
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">社区资料</div>
-          <count-to class="card-panel-num" :startVal="0" :endVal="2" :duration="2600"></count-to>
+          <count-to class="card-panel-num" :startVal="communityCount0" :endVal="communityCount0" :duration="2600"></count-to>
         </div>
       </div>
     </el-col>
@@ -23,7 +23,7 @@
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">设备资料</div>
-          <count-to class="card-panel-num" :startVal="0" :endVal="19" :duration="3000"></count-to>
+          <count-to class="card-panel-num" :startVal="communityCount0" :endVal="deviceCount0" :duration="3000"></count-to>
         </div>
       </div>
     </el-col>
@@ -36,7 +36,7 @@
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">用户资料</div>
-          <count-to class="card-panel-num" :startVal="0" :endVal="235" :duration="3200"></count-to>
+          <count-to class="card-panel-num" :startVal="communityCount0" :endVal="personCount0" :duration="3200"></count-to>
         </div>
       </div>
     </el-col>
@@ -49,7 +49,7 @@
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">访问动态</div>
-          <count-to class="card-panel-num" :startVal="0" :endVal="recordCount" :duration="3600"></count-to>
+          <count-to class="card-panel-num" :startVal="communityCount0" :endVal="recordCount0" :duration="3600"></count-to>
         </div>
       </div>
     </el-col>
@@ -68,6 +68,14 @@
       'personCount',
       'recordCount'
     ],
+    data() {
+      return {
+        communityCount0: this.communityCount,
+        deviceCount0: this.deviceCount,
+        personCount0: this.personCount,
+        recordCount0: this.recordCount
+      }
+    },
     components: {
       CountTo
     },

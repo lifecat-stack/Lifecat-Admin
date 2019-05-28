@@ -80,38 +80,38 @@
   // import BasicCountData from '@api/entity/dashboardObject'
 
   // LineChart.chartData数据: setOption()调用
-  var lineChartData = {
+  const lineChartData = {
     communitys: {
       line1: '社区总量',
       line2: '新增社区',
       total: 0,
-      line1Data: [1, 1, 1, 1, 2, 2, 2],
-      line2Data: [0, 0, 0, 0, 1, 0, 0]
+      line1Data: [],
+      line2Data: []
     },
     devices: {
       line1: '设备总量',
       line2: '新增设备',
       total: 0,
-      line1Data: [11, 13, 14, 15, 17, 18, 19],
-      line2Data: [1, 2, 1, 1, 2, 1, 1]
+      line1Data: [],
+      line2Data: []
     },
     persons: {
       line1: '用户总量',
       line2: '用户注册量',
       total: 0,
-      line1Data: [123, 147, 168, 185, 207, 222, 235],
-      line2Data: [22, 24, 21, 17, 22, 15, 13]
+      line1Data: [],
+      line2Data: []
     },
     records: {
       line1: '访问记录总量',
       line2: '新增访问量',
       total: 0,
-      line1Data: [5986, 6212, 6466, 6810, 7071, 7269, 7456],
-      line2Data: [233, 226, 254, 344, 261, 198, 187]
+      line1Data: [],
+      line2Data: []
     }
   }
 
-  export default {
+export default {
     name: 'dashboard-admin',
     components: {
       GithubCorner,
@@ -173,9 +173,9 @@
           this.deviceCount = json.deviceCount
           // person
           const personCountList = json.personCountList
-          var personTotalDataList = []
-          var personIncreaseDataList = []
-          for (let i = personCountList.length; i >= 0; i--) {
+          const personTotalDataList = []
+          const personIncreaseDataList = []
+          for (let i = personCountList.length - 1; i >= 0; i--) {
             const total = personCountList[i].totalCount
             const increase = personCountList[i].increaseCount
             personTotalDataList.push(total)
@@ -186,8 +186,8 @@
           this.personCount = json.personCount
           // record
           const recordCountList = json.recordCountList
-          var recordTotalDataList = []
-          var recordIncreaseDataList = []
+          const recordTotalDataList = []
+          const recordIncreaseDataList = []
           for (let i = recordCountList.length - 1; i >= 0; i--) {
             const total = recordCountList[i].totalCount
             const increase = recordCountList[i].increaseCount
@@ -196,7 +196,6 @@
           }
           lineChartData.records.line1Data = recordTotalDataList
           lineChartData.records.line2Data = recordIncreaseDataList
-          console.log(recordIncreaseDataList[0])
           this.recordCount = json.recordCount
         }
         )
