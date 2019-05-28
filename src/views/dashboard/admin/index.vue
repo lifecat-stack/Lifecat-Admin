@@ -72,7 +72,7 @@
   import BoxCard from './components/BoxCard'
 
   import { getBasicCount } from '@/api/dashboard'
-  import BasicCountData from '@api/entity/dashboardObject'
+  // import BasicCountData from '@api/entity/dashboardObject'
 
   // LineChart.chartData数据: setOption()调用
   const lineChartData = {
@@ -132,8 +132,8 @@
       },
       fetchData() {
         getBasicCount('feeca8a4a93d4188ba5b98bdf0c211cd').then(response => {
-          var basicCountData = new BasicCountData(response.data.data)
-          this.list = basicCountData
+          // var basicCountData = new BasicCountData(response.data.data)
+          // this.list = basicCountData
         })
       }
     }
