@@ -89,7 +89,7 @@
     },
     methods: {
       // 设置表单数据: 线1数据, 线2数据
-      setOptions({ line1, line2, line1Data, line2Data } = {}) {
+      setOptions({ line1, line2, total, line1Data, line2Data } = {}) {
         this.chart.setOption({
           // 横坐标
           xAxis: {

@@ -4,7 +4,7 @@
 
     <!--用户资料-->
     <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
-      <div class='card-panel' @click="handleSetLineChartData('newVisitis')">
+      <div class='card-panel' @click="handleSetLineChartData('communitys')">
         <div class="card-panel-icon-wrapper icon-people">
           <svg-icon icon-class="peoples" class-name="card-panel-icon"/>
         </div>
@@ -17,7 +17,7 @@
 
     <!--通知信息-->
     <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
-      <div class="card-panel" @click="handleSetLineChartData('messages')">
+      <div class="card-panel" @click="handleSetLineChartData('devices')">
         <div class="card-panel-icon-wrapper icon-message">
           <svg-icon icon-class="message" class-name="card-panel-icon"/>
         </div>
@@ -30,7 +30,7 @@
 
     <!--图片相册-->
     <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
-      <div class="card-panel" @click="handleSetLineChartData('purchases')">
+      <div class="card-panel" @click="handleSetLineChartData('persons')">
         <div class="card-panel-icon-wrapper icon-money">
           <svg-icon icon-class="tab" class-name="card-panel-icon"/>
         </div>
@@ -43,13 +43,13 @@
 
     <!--用户动态-->
     <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
-      <div class="card-panel" @click="handleSetLineChartData('shoppings')">
+      <div class="card-panel" @click="handleSetLineChartData('records')">
         <div class="card-panel-icon-wrapper icon-shoppingCard">
           <svg-icon icon-class="star" class-name="card-panel-icon"/>
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">访问动态</div>
-          <count-to class="card-panel-num" :startVal="0" :endVal="7456" :duration="3600"></count-to>
+          <count-to class="card-panel-num" :startVal="0" :endVal="323242" :duration="3600"></count-to>
         </div>
       </div>
     </el-col>
@@ -62,6 +62,11 @@
   import CountTo from 'vue-count-to'
 
   export default {
+    props: {
+      chartData: {
+        type: Object
+      }
+    },
     components: {
       CountTo
     },

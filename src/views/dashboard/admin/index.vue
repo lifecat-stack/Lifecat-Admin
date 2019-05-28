@@ -5,7 +5,7 @@
     <github-corner style="position: absolute; top: 0px; border: 0; right: 0;"></github-corner>
 
     <!--Panel面板组件-->
-    <panel-group @handleSetLineChartData="handleSetLineChartData"></panel-group>
+    <panel-group :chart-data="lineChartData" @handleSetLineChartData="handleSetLineChartData"></panel-group>
 
     <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
       <!--曲线表单-->
@@ -76,27 +76,31 @@
 
   // LineChart.chartData数据: setOption()调用
   var lineChartData = {
-    newVisitis: {
+    communitys: {
       line1: '社区总量',
       line2: '新增社区',
+      total: 0,
       line1Data: [1, 1, 1, 1, 2, 2, 2],
       line2Data: [0, 0, 0, 0, 1, 0, 0]
     },
-    messages: {
+    devices: {
       line1: '设备总量',
       line2: '新增设备',
+      total: 0,
       line1Data: [11, 13, 14, 15, 17, 18, 19],
       line2Data: [1, 2, 1, 1, 2, 1, 1]
     },
-    purchases: {
+    persons: {
       line1: '用户总量',
       line2: '用户注册量',
+      total: 0,
       line1Data: [123, 147, 168, 185, 207, 222, 235],
       line2Data: [22, 24, 21, 17, 22, 15, 13]
     },
-    shoppings: {
+    records: {
       line1: '访问记录总量',
       line2: '新增访问量',
+      total: 0,
       line1Data: [5986, 6212, 6466, 6810, 7071, 7269, 7456],
       line2Data: [233, 226, 254, 344, 261, 198, 187]
     }
@@ -118,7 +122,7 @@
     data() {
       return {
         // 设置LineChart.数据
-        lineChartData: lineChartData.newVisitis
+        lineChartData: lineChartData.communitys
 
       }
     },
@@ -132,29 +136,61 @@
       },
       fetchData() {
         getBasicCount('feeca8a4a93d4188ba5b98bdf0c211cd').then(response => {
-          // var basicCountData = new BasicCountData(response.data.data)
-          // this.list = basicCountData
-          var json = response.data.data
-
-          var communityCountList = json.communityCountList
-          var totalDataList = []
-          var increaseDataList = []
-
-          console.log(communityCountList.length)
-
-          for (let i = 0; i < communityCountList.length; i++) {
+          const json = response.data.data
+          // community
+          const communityCountList = json.communityCountList
+          const communityTotalDataList = []
+          const communityIncreaseDataList = []
+          for (let i = communityCountList.length - 1; i >= 0; i--) {
             const total = communityCountList[i].totalCount
             const increase = communityCountList[i].increaseCount
-
-            console.log(total + increase)
-
-            totalDataList.push(total)
-            increaseDataList.push(increase)
+            communityTotalDataList.push(total)
+            communityIncreaseDataList.push(increase)
           }
-
-          lineChartData.newVisitis.line1Data = totalDataList
-          lineChartData.newVisitis.line2Data = increaseDataList
-        })
+          lineChartData.communitys.line1Data = communityTotalDataList
+          lineChartData.communitys.line2Data = communityIncreaseDataList
+          lineChartData.communitys.total = json.communityCount
+          // device
+          const deviceCountList = json.deviceCountList
+          const deviceTotalDataList = []
+          const deviceIncreaseDataList = []
+          for (let i = deviceCountList.length - 1; i >= 0; i--) {
+            const total = deviceCountList[i].totalCount
+            const increase = deviceCountList[i].increaseCount
+            deviceTotalDataList.push(total)
+            deviceIncreaseDataList.push(increase)
+          }
+          lineChartData.devices.line1Data = deviceTotalDataList
+          lineChartData.devices.line2Data = deviceIncreaseDataList
+          lineChartData.devices.total = json.deviceCount
+          // person
+          const personCountList = json.personCountList
+          const personTotalDataList = []
+          const personIncreaseDataList = []
+          for (let i = personCountList.length; i >= 0; i--) {
+            const total = personCountList[i].totalCount
+            const increase = personCountList[i].increaseCount
+            personTotalDataList.push(total)
+            personIncreaseDataList.push(increase)
+          }
+          lineChartData.persons.line1Data = personTotalDataList
+          lineChartData.persons.line2Data = personIncreaseDataList
+          lineChartData.persons.total = json.personCount
+          // record
+          const recordCountList = json.recordCountList
+          const recordTotalDataList = []
+          const recordIncreaseDataList = []
+          for (let i = recordCountList.length - 1; i >= 0; i--) {
+            const total = recordCountList[i].totalCount
+            const increase = recordCountList[i].increaseCount
+            recordTotalDataList.push(total)
+            recordIncreaseDataList.push(increase)
+          }
+          lineChartData.records.line1Data = recordTotalDataList
+          lineChartData.records.line2Data = recordIncreaseDataList
+          lineChartData.records.total = json.recordCount
+        }
+        )
       }
     }
   }

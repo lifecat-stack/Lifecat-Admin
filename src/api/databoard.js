@@ -11,7 +11,7 @@ export function getUserList() {
 // 获取message列表
 export function getMessageList() {
   return request({
-    url: '/messages',
+    url: '/devices',
     method: 'get'
   })
 }
