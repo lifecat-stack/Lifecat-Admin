@@ -5,7 +5,12 @@
     <github-corner style="position: absolute; top: 0px; border: 0; right: 0;"></github-corner>
 
     <!--Panel面板组件-->
-    <panel-group :chart-data="lineChartData" @handleSetLineChartData="handleSetLineChartData"></panel-group>
+    <panel-group
+      :communityCount="communityCount"
+      :deviceCount="deviceCount"
+      :personCount="personCount"
+      :recordCount="recordCount"
+      @handleSetLineChartData="handleSetLineChartData"></panel-group>
 
     <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
       <!--曲线表单-->
@@ -122,8 +127,11 @@
     data() {
       return {
         // 设置LineChart.数据
-        lineChartData: lineChartData.communitys
-
+        lineChartData: lineChartData.communitys,
+        communityCount: 0,
+        deviceCount: 0,
+        personCount: 0,
+        recordCount: 0
       }
     },
     created() {
@@ -149,7 +157,7 @@
           }
           lineChartData.communitys.line1Data = communityTotalDataList
           lineChartData.communitys.line2Data = communityIncreaseDataList
-          lineChartData.communitys.total = json.communityCount
+          this.communityCount = json.communityCount
           // device
           const deviceCountList = json.deviceCountList
           const deviceTotalDataList = []
@@ -162,11 +170,11 @@
           }
           lineChartData.devices.line1Data = deviceTotalDataList
           lineChartData.devices.line2Data = deviceIncreaseDataList
-          lineChartData.devices.total = json.deviceCount
+          this.deviceCount = json.deviceCount
           // person
           const personCountList = json.personCountList
-          const personTotalDataList = []
-          const personIncreaseDataList = []
+          var personTotalDataList = []
+          var personIncreaseDataList = []
           for (let i = personCountList.length; i >= 0; i--) {
             const total = personCountList[i].totalCount
             const increase = personCountList[i].increaseCount
@@ -175,11 +183,11 @@
           }
           lineChartData.persons.line1Data = personTotalDataList
           lineChartData.persons.line2Data = personIncreaseDataList
-          lineChartData.persons.total = json.personCount
+          this.personCount = json.personCount
           // record
           const recordCountList = json.recordCountList
-          const recordTotalDataList = []
-          const recordIncreaseDataList = []
+          var recordTotalDataList = []
+          var recordIncreaseDataList = []
           for (let i = recordCountList.length - 1; i >= 0; i--) {
             const total = recordCountList[i].totalCount
             const increase = recordCountList[i].increaseCount
@@ -188,7 +196,8 @@
           }
           lineChartData.records.line1Data = recordTotalDataList
           lineChartData.records.line2Data = recordIncreaseDataList
-          lineChartData.records.total = json.recordCount
+          console.log(recordIncreaseDataList[0])
+          this.recordCount = json.recordCount
         }
         )
       }

@@ -49,7 +49,7 @@
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">访问动态</div>
-          <count-to class="card-panel-num" :startVal="0" :endVal="323242" :duration="3600"></count-to>
+          <count-to class="card-panel-num" :startVal="0" :endVal="recordCount" :duration="3600"></count-to>
         </div>
       </div>
     </el-col>
@@ -62,11 +62,12 @@
   import CountTo from 'vue-count-to'
 
   export default {
-    props: {
-      chartData: {
-        type: Object
-      }
-    },
+    props: [
+      'communityCount',
+      'deviceCount',
+      'personCount',
+      'recordCount'
+    ],
     components: {
       CountTo
     },
