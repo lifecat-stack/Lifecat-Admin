@@ -75,7 +75,7 @@
   // import BasicCountData from '@api/entity/dashboardObject'
 
   // LineChart.chartData数据: setOption()调用
-  const lineChartData = {
+  var lineChartData = {
     newVisitis: {
       line1: '社区总量',
       line2: '新增社区',
@@ -134,6 +134,26 @@
         getBasicCount('feeca8a4a93d4188ba5b98bdf0c211cd').then(response => {
           // var basicCountData = new BasicCountData(response.data.data)
           // this.list = basicCountData
+          var json = response.data.data
+
+          var communityCountList = json.communityCountList
+          var totalDataList = []
+          var increaseDataList = []
+
+          console.log(communityCountList.length)
+
+          for (let i = 0; i < communityCountList.length; i++) {
+            const total = communityCountList[i].totalCount
+            const increase = communityCountList[i].increaseCount
+
+            console.log(total + increase)
+
+            totalDataList.push(total)
+            increaseDataList.push(increase)
+          }
+
+          lineChartData.newVisitis.line1Data = totalDataList
+          lineChartData.newVisitis.line2Data = increaseDataList
         })
       }
     }
