@@ -142,6 +142,7 @@ export default {
       handleSetLineChartData(type) {
         this.lineChartData = lineChartData[type]
       },
+      // BasicCountData接口
       fetchData() {
         getBasicCount('feeca8a4a93d4188ba5b98bdf0c211cd').then(response => {
           const json = response.data.data

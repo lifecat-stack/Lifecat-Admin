@@ -49,7 +49,7 @@
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">访问动态</div>
-          <count-to class="card-panel-num" :startVal="communityCount0" :endVal="recordCount0" :duration="3600"></count-to>
+          <count-to class="card-panel-num" :autoplay=true :startVal="communityCount0" :endVal="recordCount0" :duration="3600"></count-to>
         </div>
       </div>
     </el-col>
@@ -62,6 +62,7 @@
   import CountTo from 'vue-count-to'
 
   export default {
+    // 父组件传参
     props: [
       'communityCount',
       'deviceCount',
@@ -80,10 +81,20 @@
       CountTo
     },
     methods: {
-      // 切换LineChart
+      // 点击Panel之后切换到对应LineChart
       handleSetLineChartData(type) {
         // $emit: 调用父组件函数
         this.$emit('handleSetLineChartData', type)
+      }
+    },
+    // 监听数据变化
+    watch: {
+      recordCount: {
+        deep: true,
+        handler(val) {
+          // CountTo组件刷新
+          this.CountTo.reset()
+        }
       }
     }
   }
