@@ -1,30 +1,45 @@
 import request from '@/utils/request'
 
-// 测试跨域访问后端
-export function getTestAll() {
+const baseUrl = '/basic'
+
+export function getBasicCount(communityId) {
   return request({
-    url: '/api/test/all',
+    url: baseUrl + '/count?communityId=' + communityId,
     method: 'get'
   })
 }
 
-export function getAccessChart() {
+export function getBasicLabelCount(communityId) {
   return request({
-    url: '/accesses',
+    url: baseUrl + '/label/count?communityId=' + communityId,
     method: 'get'
   })
 }
 
-export function getActivityChart() {
+export function getBasicDeviceCount(communityId) {
   return request({
-    url: '/activities',
+    url: baseUrl + '/device/count?communityId=' + communityId,
     method: 'get'
   })
 }
 
-export function getConsumptionChart() {
+export function getBasicDeviceWeekend(communityId) {
   return request({
-    url: '/consumptions',
+    url: baseUrl + '/device/weekend?communityId=' + communityId,
+    method: 'get'
+  })
+}
+
+export function getBasicPersonMostTable(communityId) {
+  return request({
+    url: baseUrl + '/table/personMost?communityId=' + communityId,
+    method: 'get'
+  })
+}
+
+export function getBasicDeviceRepairTable(communityId) {
+  return request({
+    url: baseUrl + '/table/deviceRepair?communityId=' + communityId,
     method: 'get'
   })
 }

@@ -71,6 +71,9 @@
   import TodoList from './components/TodoList'
   import BoxCard from './components/BoxCard'
 
+  import { getBasicCount } from '@/api/dashboard'
+  import BasicCountData from '@api/entity/dashboardObject'
+
   // LineChart.chartData数据: setOption()调用
   const lineChartData = {
     newVisitis: {
@@ -116,12 +119,22 @@
       return {
         // 设置LineChart.数据
         lineChartData: lineChartData.newVisitis
+
       }
+    },
+    created() {
+      this.fetchData()
     },
     methods: {
       // 切换LineChart
       handleSetLineChartData(type) {
         this.lineChartData = lineChartData[type]
+      },
+      fetchData() {
+        getBasicCount('feeca8a4a93d4188ba5b98bdf0c211cd').then(response => {
+          var basicCountData = new BasicCountData(response.data.data)
+          this.list = basicCountData
+        })
       }
     }
   }
